@@ -1,0 +1,686 @@
+/* ============================================================
+   hotel/site.css — identitas Samudra Suites.
+   Tenang, lapang, terpercaya. Palet sendiri: kabut pagi,
+   pasir pantai, ombak dalam, lumut karang, tembaga senja.
+   ============================================================ */
+
+:root {
+  /* Warna bernilai unik untuk hotel ini */
+  --color-fog: #f4f7f6;       /* kabut pagi — latar */
+  --color-shell: #ffffff;     /* cangkang — kartu */
+  --color-seafoam: #e8efec;   /* buih ombak — permukaan alt */
+  --color-tide: #14555a;      /* ombak dalam — aksen */
+  --color-kelp: #1e6e6b;      /* lumut karang — aksen lembut */
+  --color-copper: #b07a3f;    /* tembaga senja — sorot */
+  --color-inksea: #17303a;    /* laut malam — teks */
+  --color-spray: #647a80;     /* semprot — teks redup */
+  --color-shoreline: #d9e2de; /* garis pantai — pembatas */
+
+  /* Timpa token shared */
+  --font-heading: "Marcellus", "Georgia", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-bg: var(--color-fog);
+  --color-surface: var(--color-seafoam);
+  --color-ink: var(--color-inksea);
+  --color-muted: var(--color-spray);
+  --color-line: var(--color-shoreline);
+  --color-accent: var(--color-tide);
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: #dfeceb;
+
+  --shadow-card: 0 14px 40px rgba(23, 48, 58, 0.10);
+
+  --wrap: min(1120px, calc(100% - 40px));
+}
+
+/* ---- Bilah atas ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 247, 246, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+  padding-block: 0.75rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+}
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-ink);
+  padding: 0.5rem 0;
+}
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink);
+}
+
+/* ---- Pesan cadangan konten ---- */
+.content-notice {
+  margin: 0;
+  padding: 0.8rem 1.25rem;
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(900px 480px at 85% -10%, rgba(30, 110, 107, 0.16), transparent 60%),
+    radial-gradient(700px 420px at 8% 110%, rgba(176, 122, 63, 0.12), transparent 60%),
+    var(--color-bg);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(4rem, 8vw, 6rem);
+  overflow: hidden;
+}
+.hero-inner {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+.hero-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  margin: 0 0 1.2rem;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  max-width: 14ch;
+  margin: 0 0 1.1rem;
+}
+.hero-sub {
+  color: var(--color-muted);
+  font-size: 1.08rem;
+  max-width: 44ch;
+  margin: 0 0 1.8rem;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+/* Kartu cek tanggal */
+.hero-card {
+  background: var(--color-shell);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.6rem;
+}
+.hero-card-title {
+  font-size: 1.3rem;
+  margin: 0 0 1.2rem;
+}
+.field {
+  margin-bottom: 1rem;
+}
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+.field input[type="date"],
+.field input[type="number"] {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font: inherit;
+}
+.guest-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.guest-row input {
+  max-width: 110px;
+}
+.form-error {
+  color: #a33a2c;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 0.9rem;
+}
+.btn-block {
+  width: 100%;
+}
+.hero-card-note {
+  margin: 1rem 0 0;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+.hero-waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 70px;
+  fill: var(--color-seafoam);
+  opacity: 0.7;
+}
+
+/* ---- Kepala seksi (terhubung aria-labelledby) ---- */
+#rooms-head h2,
+#facilities-head h2,
+#location-head h2,
+#testimonials-head h2,
+#faq-head h2,
+#contact-head h2 {
+  scroll-margin-top: 90px;
+}
+
+/* ---- Kartu kamar ---- */
+.rooms-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.room-card {
+  background: var(--color-shell);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.room-card-featured {
+  border: 2px solid var(--color-copper);
+}
+.room-visual {
+  height: 120px;
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(135deg, var(--color-accent-soft) 0%, var(--color-shell) 100%);
+  border: 1px solid var(--color-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.room-visual svg {
+  width: 72px;
+  height: 72px;
+  stroke: var(--color-kelp);
+  fill: none;
+  stroke-width: 1.6;
+}
+.room-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.room-meta span {
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.8rem;
+}
+.room-price {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+.room-price strong {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  color: var(--color-ink);
+  display: block;
+}
+.room-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.room-features li {
+  padding-left: 1.6rem;
+  position: relative;
+  font-size: 0.96rem;
+}
+.room-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-kelp);
+  font-weight: 700;
+}
+.room-card .btn {
+  margin-top: auto;
+}
+
+/* ---- Fasilitas ---- */
+.section-alt {
+  background: var(--color-surface);
+}
+.facilities-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+.facility-card {
+  background: var(--color-shell);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+.facility-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+}
+.facility-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.facility-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+}
+.facility-card p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.94rem;
+}
+
+/* ---- Lokasi ---- */
+.location-wrap {
+  display: grid;
+  gap: 0;
+}
+.location-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  max-width: 640px;
+}
+.location-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-shell);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.2rem;
+}
+.location-list li strong {
+  font-weight: 600;
+}
+.location-list li span {
+  color: var(--color-accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.location-disclaimer {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+/* ---- Testimoni ---- */
+.testimonials-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.testimonial-card {
+  background: var(--color-shell);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.testimonial-quote {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.testimonial-quote::before {
+  content: "\201C";
+  color: var(--color-copper);
+  font-size: 2rem;
+  line-height: 0;
+  margin-right: 0.25rem;
+}
+.testimonial-meta {
+  margin-top: auto;
+}
+.testimonial-name {
+  font-weight: 700;
+  margin: 0;
+}
+.testimonial-detail {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* ---- FAQ ---- */
+.faq-wrap {
+  max-width: 760px;
+}
+.faq-list {
+  display: grid;
+  gap: 0.75rem;
+}
+.faq-item {
+  background: var(--color-shell);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+.faq-item button {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  color: var(--color-ink);
+}
+.faq-item button .faq-sign {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.faq-item button[aria-expanded="true"] .faq-sign {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+.faq-answer {
+  padding: 0 1.2rem 1.2rem;
+  color: var(--color-muted);
+}
+.faq-answer p {
+  margin: 0;
+}
+
+/* ---- Kontak ---- */
+.section-contact {
+  background: var(--color-inksea);
+  color: #eef3f2;
+}
+.contact-wrap {
+  display: grid;
+  gap: 2.5rem;
+}
+.section-contact .section-index {
+  color: #a8bdc2;
+}
+.section-contact .section-desc {
+  color: #c3d2d6;
+}
+.contact-desc {
+  margin: 0 0 1.2rem;
+  color: #c3d2d6;
+  max-width: 46ch;
+}
+.contact-address {
+  font-style: normal;
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+.contact-address span {
+  display: block;
+}
+.contact-address a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+.contact-actions .btn-outline {
+  border-color: #eef3f2;
+  color: #eef3f2;
+}
+.contact-actions .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.contact-map svg {
+  border-radius: var(--radius-md);
+}
+.contact-map rect {
+  fill: var(--color-seafoam);
+}
+.contact-map .map-street {
+  stroke: #ffffff;
+  stroke-width: 10;
+}
+.contact-map .map-pin {
+  fill: var(--color-copper);
+}
+.contact-map .map-ring {
+  fill: none;
+  stroke: var(--color-copper);
+  stroke-width: 3;
+  opacity: 0.55;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: #0f2329;
+  color: #c3d2d6;
+  padding: 3rem 0 1.5rem;
+}
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin: 0 0 0.4rem;
+}
+.footer-tagline,
+.footer-note {
+  margin: 0;
+  font-size: 0.94rem;
+}
+.footer-note {
+  margin-top: 0.8rem;
+  color: #8fa3a9;
+  font-size: 0.85rem;
+}
+.footer-heading {
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.8rem;
+}
+.footer-contact {
+  font-style: normal;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.94rem;
+}
+.footer-contact a {
+  color: #ffffff;
+}
+.footer-socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.2rem;
+}
+.footer-socials a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+/* ---- Responsif ---- */
+@media (min-width: 720px) {
+  .hero-inner {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+  .rooms-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact-wrap {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 719px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-shell);
+    border-bottom: 1px solid var(--color-line);
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .nav-menu.open {
+    display: flex;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .nav-links a {
+    display: block;
+    padding: 0.9rem 0.25rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .nav-cta {
+    width: 100%;
+  }
+}

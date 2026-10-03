@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Samudra Suites — Hotel Nyaman di Pusat Kota Bandung</title>
+  <meta name="description" content="Samudra Suites: hotel tenang di pusat Bandung dengan kamar luas, kolam renang, WiFi cepat, dan resepsionis 24 jam. Cek ketersediaan dan pesan lewat WhatsApp.">
+  <meta property="og:title" content="Samudra Suites — Hotel Nyaman di Pusat Kota Bandung">
+  <meta property="og:description" content="Kamar luas, kolam renang, WiFi cepat, resepsionis 24 jam. Cek tanggal dan pesan lewat WhatsApp dalam hitungan menit.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./shared/base.css">
+  <link rel="stylesheet" href="site.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <p id="content-notice" class="content-notice" role="alert" hidden></p>
+
+  <div id="site-header"></div>
+
+  <main id="konten">
+    <section id="beranda" class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="hero-badge" data-hero-badge></p>
+          <h1 id="hero-title" data-hero-title></h1>
+          <p class="hero-sub" data-hero-sub></p>
+          <div class="hero-actions" data-hero-actions></div>
+        </div>
+        <div class="hero-card">
+          <h2 class="hero-card-title" data-check-title></h2>
+          <form id="booking-form" novalidate>
+            <div class="field">
+              <label for="checkin" data-label-checkin></label>
+              <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="field">
+              <label for="checkout" data-label-checkout></label>
+              <input type="date" id="checkout" name="checkout" required>
+            </div>
+            <div class="field">
+              <label for="guests" data-label-guests></label>
+              <div class="guest-row">
+                <input type="number" id="guests" name="guests" min="1" max="10" value="2" inputmode="numeric">
+                <span data-guest-unit></span>
+              </div>
+            </div>
+            <p class="form-error" id="booking-error" role="alert" hidden></p>
+            <button type="submit" class="btn btn-primary btn-block" data-submit-label></button>
+          </form>
+          <p class="hero-card-note" data-check-note></p>
+        </div>
+      </div>
+      <svg class="hero-waves" aria-hidden="true" focusable="false" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,64 C240,96 480,32 720,64 C960,96 1200,40 1440,72 L1440,120 L0,120 Z"></path>
+      </svg>
+    </section>
+
+    <section id="kamar" class="section" aria-labelledby="rooms-title">
+      <div class="wrap">
+        <div id="rooms-head"></div>
+        <div id="rooms-grid" class="rooms-grid"></div>
+      </div>
+    </section>
+
+    <section id="fasilitas" class="section section-alt" aria-labelledby="facilities-title">
+      <div class="wrap">
+        <div id="facilities-head"></div>
+        <div id="facilities-grid" class="facilities-grid"></div>
+      </div>
+    </section>
+
+    <section id="lokasi" class="section" aria-labelledby="location-title">
+      <div class="wrap location-wrap">
+        <div id="location-head"></div>
+        <ul id="location-list" class="location-list"></ul>
+        <p class="location-disclaimer" id="location-disclaimer"></p>
+      </div>
+    </section>
+
+    <section id="testimoni" class="section section-alt" aria-labelledby="testimonials-title">
+      <div class="wrap">
+        <div id="testimonials-head"></div>
+        <div id="testimonials-grid" class="testimonials-grid"></div>
+      </div>
+    </section>
+
+    <section id="faq" class="section" aria-labelledby="faq-title">
+      <div class="wrap faq-wrap">
+        <div id="faq-head"></div>
+        <div id="faq-list" data-faq class="faq-list"></div>
+      </div>
+    </section>
+
+    <section id="kontak" class="section section-contact" aria-labelledby="contact-title">
+      <div class="wrap contact-wrap">
+        <div class="contact-info">
+          <div id="contact-head"></div>
+          <p class="contact-desc" id="contact-desc"></p>
+          <address class="contact-address" id="contact-address"></address>
+          <div class="contact-actions" id="contact-actions"></div>
+        </div>
+        <div class="contact-map" aria-hidden="true">
+          <svg viewBox="0 0 400 300" focusable="false">
+            <rect width="400" height="300" rx="18"></rect>
+            <path class="map-street" d="M0,210 C120,190 180,240 300,220 S380,180 400,200" fill="none"></path>
+            <path class="map-street" d="M80,0 C90,90 70,190 100,300" fill="none"></path>
+            <path class="map-street" d="M260,0 C250,120 280,200 270,300" fill="none"></path>
+            <circle class="map-pin" cx="200" cy="150" r="10"></circle>
+            <circle class="map-ring" cx="200" cy="150" r="22"></circle>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script type="module" src="site.js"></script>
+</body>
+</html>
